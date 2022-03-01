@@ -38,8 +38,8 @@ export const categories = [
   {
     id: 3,
     img: "https://firebasestorage.googleapis.com/v0/b/mern-project-images.appspot.com/o/Denim-wear.jpg?alt=media&token=8ba930de-6293-4c15-bf96-6065bb494eb4",
-    title: "Kids Wear & Accessories",
-    category:"kids",
+    title: "Denim Wear",
+    category:"Denim",
   },
 ];
 
