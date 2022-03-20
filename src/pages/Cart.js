@@ -166,6 +166,7 @@ const Button = styled.button`
 
 const Cart = () => {
   const cart = useSelector(state => state.cart);
+  const quantity = useSelector(state=>state.cart.quantity);
 
   const { products, total } = cart;
 
@@ -209,9 +210,9 @@ const Cart = () => {
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
-          <TopButton>CONTINUE SHOPPING</TopButton>
+          <TopButton onClick={() => navigate(-1)}>CONTINUE SHOPPING</TopButton>
           <TopTexts>
-            <TopText>Shopping Bag(2)</TopText>
+            <TopText>Shopping Bag({quantity})</TopText>
             <TopText>Your Wishlist (0)</TopText>
           </TopTexts>
           <TopButton type="filled">CHECKOUT NOW</TopButton>
@@ -238,20 +239,20 @@ const Cart = () => {
                       <Image src={img} alt={title} />
                       <Details>
                         <ProductName>
-                          <b>{product.title}: </b>
+                          <b>Product Name: </b>
                           {title}
                         </ProductName>
                         <ProductId>
-                          <b>{product._id}: </b>
+                          <b>Product ID: </b>
                           {id}
                         </ProductId>
-                        <ProductColorContainer>
-                          <b>{product.color}: </b>
+                        {(color &&(<ProductColorContainer>
+                          <b>Color: </b>
                           <ProductColor color={color} />
-                        </ProductColorContainer>
+                        </ProductColorContainer>))}
                         {(size?.length && size?.includes("") && (
                           <ProductSize>
-                            <b>{product.size}: </b>
+                            <b>Size: </b>
                             {size}
                           </ProductSize>
                         )) ||
@@ -292,45 +293,6 @@ const Cart = () => {
                 </Fragment>
               )
             })}
-            {/* {products.map(product=>( 
-                            const { img, title, _id: id, color, size, qte, price } = product
-
-            <Product>
-              <ProductDetail>
-                <Image src={product.img} />
-                <Details>
-                  <ProductName>
-                    <b>Product:</b> {product.title}
-                  </ProductName>
-                  <ProductId>
-                    <b>ID:</b> {product._id}
-                  </ProductId>
-                  <ProductColor color={product.color} />
-                  <ProductSize>
-                    <b>Size:</b> {product.size}
-                  </ProductSize>
-                </Details>
-              </ProductDetail>
-              <PriceDetail>
-                <ProductAmountContainer>
-                <Add onClick={() => { dispatch (updateProduct({ id, quantity: 1, price, size, color })) }} />
-                  <ProductAmount>{product.quantity}</ProductAmount>
-                  <Remove onClick={() => { if (quantity > 1)
-                              dispatch(
-                                updateProduct({
-                                  id,
-                                  quantity: -1,
-                                  price,
-                                  size,
-                                  color
-                                })
-                              )
-                  }}/>
-                </ProductAmountContainer>
-                <ProductPrice>Rs. {product.price * product.quantity}</ProductPrice>
-              </PriceDetail>
-            </Product>)}
-            <Hr /> */}
           </Info>
           <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
