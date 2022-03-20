@@ -5,6 +5,7 @@ export const sliderItems = [
       title: "SHOES & FOOTWEAR",
       desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
       bg: "f5fafd",
+      link:"/products/Footwear"
     },
     {
       id: 2,
@@ -12,6 +13,7 @@ export const sliderItems = [
       title: "BLAZERS LOVE",
       desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
       bg: "fcf1ed",
+      link:"/products/Blazers"
     },
     {
       id: 3,
@@ -19,6 +21,7 @@ export const sliderItems = [
       title: "WATCHES",
       desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
       bg: "fbf0f4",
+      link:"/products/Watches"
     },
 ];
 
@@ -38,8 +41,8 @@ export const categories = [
   {
     id: 3,
     img: "https://firebasestorage.googleapis.com/v0/b/mern-project-images.appspot.com/o/Denim-wear.jpg?alt=media&token=8ba930de-6293-4c15-bf96-6065bb494eb4",
-    title: "Denim Wear",
-    category:"Denim",
+    title: "Kids Wear & Accessories",
+    category:"kids",
   },
 ];
 
