@@ -4,7 +4,7 @@ const BASE_URL = process.env.REACT_APP_URL;
 
 const user = JSON.parse(localStorage.getItem("persist:root"))?.user;
 const currentUser = user && JSON.parse(user).currentUser;
-const TOKEN = currentUser && currentUser.accessToken;
+const TOKEN = currentUser?.accessToken;
 
 export const publicRequest = axios.create({
     baseURL: BASE_URL,
