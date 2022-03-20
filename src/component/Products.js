@@ -14,6 +14,8 @@ const BASE_URL = process.env.REACT_APP_URL;
 
 const Products = ({ category, filters, sort}) =>{
 
+    console.log(category, filters, sort);
+
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
     
