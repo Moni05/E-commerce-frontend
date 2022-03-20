@@ -8,7 +8,6 @@ const Success = () => {
   const location = useLocation();
   console.log(location);
 
-  //in Cart.jsx I sent data and cart. Please check that page for the changes.(in video it's only data)
   const data = location.state.stripeData;
   const cart = location.state.products;
   const currentUser = useSelector((state) => state.user.currentUser);
@@ -17,15 +16,17 @@ const Success = () => {
   useEffect(() => {
     const createOrder = async () => {
       try {
+        console.log(cart.products);
         const res = await userRequest.post("/orders", {
           userid: currentUser._id,
-          products: cart.products.map((item) => ({
-            productId: item._id,
+          product: cart.products.map((item) => ({
+            productid: item._id,
             quantity: item._quantity,
           })),
           amount: cart.total,
           address: data.billing_details.address,
         });
+        
         setOrderId(res.data._id);
       } catch (err){
         console.log(err);
