@@ -10,6 +10,12 @@ const Container = styled.div`
     justify-content: space-between;
 `
 
+const Title = styled.h1`
+  font-size: 25px;
+  margin-bottom: 20px;
+  text-align: center;
+`;
+
 const BASE_URL = process.env.REACT_APP_URL;
 
 const Products = ({ category, filters, sort}) =>{
@@ -58,7 +64,7 @@ const Products = ({ category, filters, sort}) =>{
     
     return(
         <Container>
-      {category ? filteredProducts.map((item) => <Product item={item} key={item._id} />)
+      {category ? (filteredProducts.length?filteredProducts.map((item) => <Product item={item} key={item._id} />):<Title>No Products to display</Title>)
         :  products
         .slice(0, 8)
         .map((item) => <Product item={item} key={item._id} />)}
