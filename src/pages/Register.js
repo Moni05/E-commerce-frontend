@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useRef } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   width: 100vw;
@@ -66,6 +67,7 @@ const Register = () => {
   const firstname = useRef();
   const lastname = useRef();
   const BASE_URL = process.env.REACT_APP_URL;
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -81,6 +83,7 @@ const Register = () => {
       };
       try {
         await axios.post(`${BASE_URL}auth/register`, user);
+        navigate("/login");
         
       } catch (err) {
         console.log(err);
