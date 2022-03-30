@@ -65,7 +65,7 @@ const Register = () => {
   const passwordAgain = useRef();
   const firstname = useRef();
   const lastname = useRef();
-  const BASE_URL = "http://localhost:3001/";
+  const BASE_URL = process.env.REACT_APP_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
